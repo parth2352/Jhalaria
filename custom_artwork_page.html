@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Artwork - Vibeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Risque&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        header .search input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+        header .menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .menu button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        header .menu button:hover {
+            background-color: #f0f0f0;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px auto;
+            width: 90%;
+        }
+        .artwork-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .artwork-form h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .artwork-form select, .artwork-form input, .artwork-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .artwork-form select option {
+            font-size: 16px;
+        }
+        .artwork-form textarea {
+            height: 100px;
+            resize: none;
+        }
+        .artwork-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .artwork-form button:hover {
+            background-color: #45a049;
+        }
+        .category-options {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category-option {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            width: 30%;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+        .category-option:hover {
+            background-color: #f0f0f0;
+        }
+        .category-option img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo_placeholder.png" alt="Vibeline Logo">
+            Vibeline
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search artists, events...">
+        </div>
+        <div class="menu">
+            <button onclick="location.href='audience_home.html'">Dashboard</button>
+            <button onclick="location.href='notifications_page.html'">Notifications</button>
+            <button onclick="location.href='settings_page.html'">Settings</button>
+            <button onclick="location.href='login.html'">Log Out</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="artwork-form">
+            <h2>Select Your Artwork Type</h2>
+            <div class="category-options">
+                <!-- Categories -->
+                <div class="category-option" onclick="showMusicForm()">
+                    <img src="music_icon.png" alt="Music">
+                    <p>Music</p>
+                </div>
+                <div class="category-option" onclick="showSingingForm()">
+                    <img src="singing_icon.png" alt="Singing">
+                    <p>Singing</p>
+                </div>
+                <div class="category-option" onclick="showLyricsWritingForm()">
+                    <img src="lyrics_icon.png" alt="Lyrics Writing">
+                    <p>Lyrics Writing</p>
+                </div>
+                <div class="category-option" onclick="showPoetryForm()">
+                    <img src="poetry_icon.png" alt="Poetry">
+                    <p>Poetry</p>
+                </div>
+                <div class="category-option" onclick="showDanceForm()">
+                    <img src="dance_icon.png" alt="Dance">
+                    <p>Dance</p>
+                </div>
+                <div class="category-option" onclick="showEventPoetryForm()">
+                    <img src="poetry_event_icon.png" alt="Event Poetry">
+                    <p>Event Poetry</p>
+                </div>
+                <div class="category-option" onclick="showArtistBookingForm()">
+                    <img src="artist_icon.png" alt="Artist Booking">
+                    <p>Artist Booking</p>
+                </div>
+            </div>
+
+            <!-- Requirements Form -->
+            <div id="requirements-form" style="display: none;">
+                <h2>Your Requirements</h2>
+                <form id="custom-artwork-form">
+                    <label for="description">Describe your requirements:</label>
+                    <textarea id="description" placeholder="Write details of your requirements..."></textarea>
+
+                    <label for="event-details">Event Details (If applicable):</label>
+                    <textarea id="event-details" placeholder="Provide details for the event..."></textarea>
+
+                    <label for="timeframe">Preferred Timeframe:</label>
+                    <input type="text" id="timeframe" placeholder="e.g., 2 weeks, 1 month">
+
+                    <label for="budget">Budget (optional):</label>
+                    <input type="text" id="budget" placeholder="e.g., $100-$500">
+
+                    <button type="submit">Request Artist</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Vibeline. All rights reserved.
+    </footer>
+
+    <script>
+        function showMusicForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showSingingForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showLyricsWritingForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showPoetryForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showDanceForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showEventPoetryForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+
+        function showArtistBookingForm() {
+            document.getElementById("requirements-form").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

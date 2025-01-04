@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/View Lessons - Vibeline</title>
+    <style>
+        .container { width: 80%; margin: auto; padding: 20px; }
+        h2 { text-align: center; }
+        .button { padding: 10px 20px; background-color: #2579c6; color: white; border: none; cursor: pointer; }
+        .button:hover { background-color: #0a5e8d; }
+        .card { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background-color: #2579c6; text-align: center; padding: 10px 0; }
+        .nav-item { display: inline-block; margin: 0 15px; }
+        .nav-item a { color: white; text-decoration: none; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Add Your Lesson</h2>
+    <div class="card">
+        <h3>Create New Lesson</h3>
+        <form id="lessonForm">
+            <div class="form-group">
+                <input type="text" id="lessonTitle" placeholder="Lesson Title" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="lessonPrice" placeholder="Price" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="lessonDuration" placeholder="Duration (e.g., 1 hour)" required>
+            </div>
+            <div class="form-group">
+                <textarea id="lessonDescription" placeholder="Lesson Description" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="button">Submit Lesson</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Your Lessons</h3>
+        <ul id="lessonsList">
+            <!-- Existing lessons will appear here -->
+        </ul>
+    </div>
+</div>
+
+<script>
+    // Example to display lessons (in a real system, these would be fetched from a server)
+    const lessons = [];
+
+    document.getElementById('lessonForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const title = document.getElementById('lessonTitle').value;
+        const price = document.getElementById('lessonPrice').value;
+        const duration = document.getElementById('lessonDuration').value;
+        const description = document.getElementById('lessonDescription').value;
+
+        const newLesson = { title, price, duration, description };
+        lessons.push(newLesson);
+        displayLessons();
+    });
+
+    function displayLessons() {
+        const lessonsList = document.getElementById('lessonsList');
+        lessonsList.innerHTML = '';
+        lessons.forEach((lesson, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <h4>${lesson.title}</h4>
+                <p>Price: ${lesson.price}</p>
+                <p>Duration: ${lesson.duration}</p>
+                <p>${lesson.description}</p>
+            `;
+            lessonsList.appendChild(listItem);
+        });
+    }
+
+    displayLessons();
+</script>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+    <div class="nav-item"><a href="artist_home.html">Home</a></div>
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="artist_profile.html">Profile</a></di

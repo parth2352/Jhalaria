@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks and Help Pages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Risque&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        header .search input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+        header .menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .menu button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        header .menu button:hover {
+            background-color: #f0f0f0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .bookmarks, .help {
+            margin-bottom: 20px;
+        }
+        .bookmark-item, .help-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .bookmark-item a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .bookmark-item a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo_placeholder.png" alt="Vibeline Logo">
+            Vibeline
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search artists, events...">
+        </div>
+        <div class="menu">
+            <button onclick="location.href='loops_page.html'">Loops</button>
+            <button onclick="location.href='live_page.html'">Live</button>
+            <button onclick="location.href='custom_artwork_page.html'">Custom Artwork</button>
+            <button onclick="location.href='notifications_page.html'">Notifications</button>
+            <button onclick="location.href='settings_page.html'">Settings</button>
+            <button onclick="location.href='login_audience.html'">Log Out</button>
+        </div>
+    </header>
+
+    <!-- Bookmarks Section -->
+    <main>
+        <div class="content bookmarks">
+            <h2>Bookmarks</h2>
+            <div class="bookmark-item">
+                <a href="#">Art Performance by John Doe</a>
+                <p>Date: 2024-12-15</p>
+            </div>
+            <div class="bookmark-item">
+                <a href="#">Live Painting Session with Jane Smith</a>
+                <p>Date: 2024-12-20</p>
+            </div>
+        </div>
+
+        <!-- Help Section -->
+        <div class="content help">
+            <h2>Help & Support</h2>
+            <div class="help-item">
+                <strong>How to Book an Artist?</strong>
+                <p>Learn the steps to book an artist for your next event.</p>
+            </div>
+            <div class="help-item">
+                <strong>Payment Issues</strong>
+                <p>Facing issues with payments? Find solutions here.</p>
+            </div>
+            <div class="help-item">
+                <strong>Contact Support</strong>
+                <p>For further assistance, email us at support@vibeline.com or call +1 234 567 890.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Vibeline. All rights reserved.
+    </footer>
+</body>
+</html>

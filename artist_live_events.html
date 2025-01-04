@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Live Event - Vibeline</title>
+    <style>
+        /* Add your shared styles here */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Host a Live Event</h2>
+    <form action="submit_event.php" method="POST">
+        <div class="form-group">
+            <label for="event_title">Event Title</label>
+            <input type="text" id="event_title" name="event_title" placeholder="Enter event title" required>
+        </div>
+        <div class="form-group">
+            <label for="event_time">Event Time</label>
+            <input type="datetime-local" id="event_time" name="event_time" required>
+        </div>
+        <div class="form-group">
+            <label for="event_price">Price</label>
+            <input type="number" id="event_price" name="event_price" placeholder="Enter event price" required>
+        </div>
+        <div class="form-group">
+            <label for="event_description">Event Description</label>
+            <textarea id="event_description" name="event_description" rows="4" placeholder="Describe the event" required></textarea>
+        </div>
+        <button type="submit">Host Event</button>
+    </form>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+    <div class="nav-item"><a href="artist_home.html">Home</a></div>
+    <div class="nav-item"><a href="explore.html">Explore</a></div>
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="messages.html">Messages</a></div>
+    <div class="nav-item"><a href="artist_profile.html">Profile</a></div>
+</div>
+
+</body>
+</html>

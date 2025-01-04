@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Requests - Vibeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Risque&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; }
+        .container { width: 90%; margin: auto; padding: 20px; }
+        h2 { text-align: center; color: #2579c6; }
+        .card { background-color: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .button { padding: 12px 25px; background-color: #2579c6; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .button:hover { background-color: #0a5e8d; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background-color: #2579c6; text-align: center; padding: 10px 0; }
+        .nav-item { display: inline-block; margin: 0 15px; }
+        .nav-item a { color: white; text-decoration: none; font-size: 18px; }
+        .request-item { display: flex; justify-content: space-between; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; }
+        .request-item p { margin: 0; }
+        .request-actions { display: flex; gap: 10px; }
+        .request-actions button { padding: 8px 15px; background-color: #2579c6; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .request-actions button:hover { background-color: #0a5e8d; }
+
+        /* Style for Vibeline logo and description */
+        .vibeline-logo {
+            font-family: 'Risque', sans-serif;
+            color: #2579c6;
+            font-weight: bold;
+            font-size: 40px;
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+        .vibeline-description {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+        /* Bottom navigation matching home page */
+        .bottom-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2579c6;
+            padding: 12px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .nav-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Vibeline Header -->
+<div class="header">
+    <div class="vibeline-logo">
+        Vibeline
+    </div>
+    <p class="vibeline-description">Discover and connect with artists from all walks of life. Whether you're a musician, dancer, or poet, Vibeline is your stage!</p>
+</div>
+
+<div class="container">
+    <h2>View Requests</h2>
+
+    <!-- Sample Request Item -->
+    <div class="request-item">
+        <div>
+            <p><strong>Request Title:</strong> Live Performance at ABC Club</p>
+            <p><strong>Requested By:</strong> John Doe</p>
+        </div>
+        <div class="request-actions">
+            <button>Accept</button>
+            <button>Decline</button>
+        </div>
+    </div>
+
+    <div class="request-item">
+        <div>
+            <p><strong>Request Title:</strong> Guitar Lesson for Beginners</p>
+            <p><strong>Requested By:</strong> Jane Smith</p>
+        </div>
+        <div class="request-actions">
+            <button>Accept</button>
+            <button>Decline</button>
+        </div>
+    </div>
+
+    <!-- Add More Requests Below as Needed -->
+
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+    <div class="nav-item"><a href="artist_home.html">Home</a></div>
+    <div class="nav-item"><a href="notifications.html">Notifications</a></div>
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="artist_profile.html">Profile</a></div>
+</div>
+
+<style>
+    .bottom-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2579c6;
+        padding: 12px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .nav-item {
+        display: inline-block;
+        margin: 0 10px;  /* Add margin for spacing */
+    }
+
+    .nav-item a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    /* Ensure the navigation is centered */
+    .bottom-nav {
+        display: flex;
+        justify-content: center; /* Ensures the items are centered */
+        gap: 20px;  /* Space between the items */
+    }
+</style>
+
+</body>
+</html>

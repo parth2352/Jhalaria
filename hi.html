@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Lessons & Events - Vibeline</title>
+    <style>
+        /* Basic styling */
+        .container { width: 90%; margin: auto; padding: 20px; }
+        .grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        .card { width: 280px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .card img { width: 100%; border-radius: 5px; }
+        .card button { background-color: #2579c6; color: #fff; padding: 10px 15px; border: none; cursor: pointer; }
+        .card button:hover { background-color: #0a5e8d; }
+        h2 { font-size: 28px; margin-bottom: 20px; }
+        .section-title { font-size: 22px; margin: 20px 0 10px; }
+        .empty-message { font-size: 18px; color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Explore Lessons & Events</h2>
+
+    <!-- Section for Lessons -->
+    <div class="section-title">Available Lessons</div>
+    <div class="grid" id="lessons-section">
+        <div class="empty-message" id="lessons-empty-message">No lessons available yet.</div>
+    </div>
+
+    <!-- Section for Live Events -->
+    <div class="section-title">Upcoming Live Events</div>
+    <div class="grid" id="events-section">
+        <div class="empty-message" id="events-empty-message">No events available yet.</div>
+    </div>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+    <div class="nav-item"><a href="audience_home.html">Home</a></div>
+    <div class="nav-item"><a href="explore.html">Explore</a></div>
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="messages.html">Messages</a></div>
+    <div class="nav-item"><a href="audience_profile.html">Profile</a></div>
+</div>
+
+<script>
+    // This data should ideally be fetched from a database or an API
+    // For now, we use static examples to demonstrate functionality
+
+    const lessons = []; // Empty array - no lessons added yet
+    const events = [];   // Empty array - no events added yet
+
+    // Function to display lessons dynamically
+    function displayLessons() {
+        const lessonsSection = document.getElementById('lessons-section');
+        const lessonsMessage = document.getElementById('lessons-empty-message');
+        
+        if (lessons.length === 0) {
+            lessonsMessage.style.display = 'block'; // Show the empty message if no lessons
+        } else {
+            lessonsMessage.style.display = 'none'; // Hide the empty message when lessons exist
+            lessons.forEach(lesson => {
+                const lessonCard = document.createElement('div');
+                lessonCard.classList.add('card');
+                lessonCard.innerHTML = `
+                    <h3>${lesson.title}</h3>
+                    <p>Price: ${lesson.price}</p>
+                    <p>Duration: ${lesson.duration}</p>
+                    <button onclick="window.location.href='lesson_details.html'">Book Now</button>
+                `;
+                lessonsSection.appendChild(lessonCard);
+            });
+        }
+    }
+
+    // Function to display events dynamically
+    function displayEvents() {
+        const eventsSection = document.getElementById('events-section');
+        const eventsMessage = document.getElementById('events-empty-message');
+        
+        if (events.length === 0) {
+            eventsMessage.style.display = 'block'; // Show the empty message if no events
+        } else {
+            eventsMessage.style.display = 'none'; // Hide the empty message when events exist
+            events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.classList.add('card');
+                eventCard.innerHTML = `
+                    <h3>${event.title}</h3>
+                    <p>Time: ${event.time}</p>
+                    <p>Price: ${event.price}</p>
+                    <button onclick="window.location.href='join_live_event.html'">Join Live</button>
+                `;
+                eventsSection.appendChild(eventCard);
+            });
+        }
+    }
+
+    // Call functions to display lessons and events
+    displayLessons();
+    displayEvents();
+</script>
+
+</body>
+</html>

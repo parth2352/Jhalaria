@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Page - Vibeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Risque&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        header .search input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+        header .menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .menu button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        header .menu button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Live page sections */
+        .main-content {
+            margin: 40px auto;
+            width: 90%;
+        }
+        .live-section, .upcoming-section, .recording-section {
+            margin-bottom: 40px;
+        }
+        .live-section h2, .upcoming-section h2, .recording-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .live-item, .upcoming-item, .recording-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .live-item:hover, .upcoming-item:hover, .recording-item:hover {
+            transform: scale(1.02);
+        }
+        .item-details {
+            display: flex;
+            align-items: center;
+        }
+        .item-details img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .item-details .title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .item-details .sub-title {
+            color: #777;
+            font-size: 14px;
+        }
+        .item-action button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .item-action button:hover {
+            background-color: #45a049;
+        }
+        .item-time {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Tabs and Filters */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tab:hover {
+            background-color: #f0f0f0;
+        }
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo_placeholder.png" alt="Vibeline Logo">
+            Vibeline
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search live events, artists...">
+        </div>
+        <div class="menu">
+            <button onclick="location.href='audience_home.html'">Dashboard</button>
+            <button onclick="location.href='notifications_page.html'">Notifications</button>
+            <button onclick="location.href='settings_page.html'">Settings</button>
+            <button onclick="location.href='login_audience.html'">Log Out</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" id="live-tab" onclick="showLive()">Live</div>
+            <div class="tab" id="upcoming-tab" onclick="showUpcoming()">Upcoming</div>
+            <div class="tab" id="recording-tab" onclick="showRecording()">Recording</div>
+        </div>
+
+        <!-- Live Section -->
+        <div id="live-section" class="live-section">
+            <h2>Currently Live</h2>
+            <div class="live-item">
+                <div class="item-details">
+                    <img src="artist1.jpg" alt="Artist 1">
+                    <div>
+                        <div class="title">John Doe - Piano</div>
+                        <div class="sub-title">Live now</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='live-stream.html'">Watch Now</button>
+                </div>
+            </div>
+            <div class="live-item">
+                <div class="item-details">
+                    <img src="artist2.jpg" alt="Artist 2">
+                    <div>
+                        <div class="title">Jane Smith - Vocal Performance</div>
+                        <div class="sub-title">Live now</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='live-stream.html'">Watch Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Section -->
+        <div id="upcoming-section" class="upcoming-section" style="display: none;">
+            <h2>Upcoming Live Events</h2>
+            <div class="upcoming-item">
+                <div class="item-details">
+                    <img src="artist3.jpg" alt="Artist 3">
+                    <div>
+                        <div class="title">Sarah Lee - Dance Performance</div>
+                        <div class="sub-title">Starts in 2 hours</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='upcoming-stream.html'">Set Reminder</button>
+                </div>
+            </div>
+            <div class="upcoming-item">
+                <div class="item-details">
+                    <img src="artist4.jpg" alt="Artist 4">
+                    <div>
+                        <div class="title">Michael Jordan - Guitar Lesson</div>
+                        <div class="sub-title">Starts in 3 hours</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='upcoming-stream.html'">Set Reminder</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recording Section -->
+        <div id="recording-section" class="recording-section" style="display: none;">
+            <h2>Currently Recording Lessons</h2>
+            <div class="recording-item">
+                <div class="item-details">
+                    <img src="artist5.jpg" alt="Artist 5">
+                    <div>
+                        <div class="title">Chris Brown - Guitar Lesson</div>
+                        <div class="sub-title">Recording now</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='recording.html'">Watch Recording</button>
+                </div>
+            </div>
+            <div class="recording-item">
+                <div class="item-details">
+                    <img src="artist6.jpg" alt="Artist 6">
+                    <div>
+                        <div class="title">Emma Watson - Singing Class</div>
+                        <div class="sub-title">Recording now</div>
+                    </div>
+                </div>
+                <div class="item-action">
+                    <button onclick="window.location.href='recording.html'">Watch Recording</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 Vibeline. All rights reserved.
+    </footer>
+
+    <script>
+        // Show respective sections
+        function showLive() {
+            document.getElementById('live-tab').classList.add('active');
+            document.getElementById('upcoming-tab').classList.remove('active');
+            document.getElementById('recording-tab').classList.remove('active');
+
+            document.getElementById('live-section').style.display = 'block';
+            document.getElementById('upcoming-section').style.display = 'none';
+            document.getElementById('recording-section').style.display = 'none';
+        }
+
+        function showUpcoming() {
+            document.getElementById('live-tab').classList.remove('active');
+            document.getElementById('upcoming-tab').classList.add('active');
+            document.getElementById('recording-tab').classList.remove('active');
+
+            document.getElementById('live-section').style.display = 'none';
+            document.getElementById('upcoming-section').style.display = 'block';
+            document.getElementById('recording-section').style.display = 'none';
+        }
+
+        function showRecording() {
+            document.getElementById('live-tab').classList.remove('active');
+            document.getElementById('upcoming-tab').classList.remove('active');
+            document.getElementById('recording-tab').classList.add('active');
+
+            document.getElementById('live-section').style.display = 'none';
+            document.getElementById('upcoming-section').style.display = 'none';
+            document.getElementById('recording-section').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

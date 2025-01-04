@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Loop - Vibeline</title>
+    <style>
+        .container { width: 80%; margin: auto; padding: 20px; }
+        h2 { text-align: center; }
+        .form-group { margin: 10px 0; }
+        input[type="text"], input[type="file"] { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 15px 30px; background-color: #2579c6; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0a5e8d; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Submit a New Loop</h2>
+    <form>
+        <div class="form-group">
+            <label for="loopName">Loop Name</label>
+            <input type="text" id="loopName" placeholder="Enter Loop Name" required>
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" placeholder="Enter Genre" required>
+        </div>
+        <div class="form-group">
+            <label for="audioUpload">Upload Audio</label>
+            <input type="file" id="audioUpload" required>
+        </div>
+        <button type="submit">Submit Loop</button>
+    </form>
+</div>
+
+</body>
+</html>

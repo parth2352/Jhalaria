@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibeline Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Risque&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        header .search input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+        header .menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .menu button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        header .menu button:hover {
+            background-color: #f0f0f0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            padding: 10px;
+            z-index: 1;
+            right: 20px;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 5px 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            margin: 20px auto;
+            width: 90%;
+        }
+        aside.left, aside.right, section.feed {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        ul li.filter-button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+        ul li.filter-button:hover {
+            background-color: #f0f0f0;
+        }
+        section.feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .post {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-info {
+    flex-grow: 1;
+}
+
+.post-info h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.post-profession {
+    font-size: 14px;
+    color: #555;
+    display: block;
+}
+
+.post-time {
+    font-size: 14px;
+    color: #555;
+    display: block;
+}
+.post img.post-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+.follow-button {
+    background: #0073b1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.follow-button:hover {
+    background: #005582;
+}
+
+.post video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.actions button:hover {
+    color: #000;
+}
+
+.post-stats {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+        }
+      aside.right .wallet {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        aside.right .buttons button {
+            background: none;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: left;
+            padding: 0;
+            margin-bottom: 10px;
+            display: block;
+        }
+        aside.right .buttons button:hover {
+            text-decoration: underline;
+        }
+        .start-post {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+        .start-post textarea {
+            border: none;
+            resize: none;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            color: #555;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .start-post-options {
+            display: flex;
+            justify-content: space-between;
+            color: black;
+            margin-top: 5px;
+        }
+        .start-post-options div {
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .start-post-options div img {
+            width: 16px;
+            height: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .profile-header .cover-photo {
+            width: 100%;
+            height: 100px;
+            background-color: #ddd;
+            border-radius: 8px;
+        }
+        .profile-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-top: -25px;
+            border: 2px solid white;
+        }
+        .profile-header .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .profile-header .profile-info h4 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .profile-header .profile-info span {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo_placeholder.png" alt="Vibeline Logo">
+            Vibeline
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search artists, events...">
+        </div>
+        <div class="menu">
+            <button onclick="location.href='loops_page.html'">Loops</button>
+            <button onclick="location.href='live_page.html'">Live</button>
+            <button onclick="location.href='custom_artwork_page.html'">Custom Artwork</button>
+            <button onclick="location.href='notifications_page.html'">Notifications</button>
+            <button onclick="location.href='settings_page.html'">Settings</button>
+            <button onclick="location.href='login_audience.html'">Log Out</button>
+<div class="dropdown">
+    <button onclick="location.href='profile_page.html'">Profile</button>
+    <div class="dropdown-content">             
+ <a href="wallet_page.html">Wallet</a>
+        <a href="bookmarks_page.html">Bookmarks and Help</a>
+        
+               
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+    <aside class="left">
+    <div class="profile-header">
+        <div class="cover-photo" style="background-image: url('cover_photo_placeholder.png');"></div>
+        <img src="avatar_placeholder.png" alt="Parth Jhalaria">
+        <div class="profile-info">
+            <h4>Parth Jhalaria</h4>
+            <span>Mandi Dabwali</span>
+        </div>
+    </div>
+    <h3>Your Profile</h3>
+    <ul>
+        <li>Connections: 14</li>
+        <li><button onclick="location.href='saved_events_page.html'" style="background: none; border: none; color: black; cursor: pointer;">Saved Events</button></li>
+        <li><button onclick="location.href='portfolio_display_page.html'" style="background: none; border: none; color: black; cursor: pointer;">Portfolio Display</button></li>
+    </ul>
+
+    <h3>Upcoming Events</h3>
+    <ul>
+        <li>Live Dance Workshop - Tomorrow</li>
+        <li>Poetry Showcase - Friday</li>
+        <li>Art Exhibition - Saturday</li>
+    </ul>
+
+    <h3>Category Filters</h3>
+    <ul>
+        <li class="filter-button">Music</li>
+        <li class="filter-button">Dance</li>
+        <li class="filter-button">Poetry</li>
+        <li class="filter-button">Theatre</li>
+        <li class="filter-button">Visual Arts</li>
+    </ul>
+</aside>
+
+        <!-- Feed (Posts/Reels) -->
+        <section class="feed">
+            <div class="start-post">
+                <textarea placeholder="Start a post..."></textarea>
+                <div class="start-post-options">
+                    <div><img src="video_icon.png" alt="Video"> Video</div>
+                    <div><img src="photo_icon.png" alt="Photo"> Photo</div>
+                    <div><img src="article_icon.png" alt="Write article"> Write article</div>
+                </div>
+            </div>
+
+<!-- Video Post -->
+<div class="post">
+    <!-- Post Header -->
+    <div class="post-header">
+        <img src="avatar_placeholder.png" alt="Sudhir Jhalaria" class="post-avatar">
+        <div class="post-info">
+            <h4>Sudhir Jhalaria</h4>
+            <span class="post-profession">Dance Instructor</span>
+            <span class="post-time">2 hours ago</span>
+        </div>
+        <button class="follow-button">Follow +</button>
+    </div>
+
+    <!-- Descriptive Text -->
+    <p class="post-description">Join us for a live dance session tomorrow evening. 💃✨</p>
+
+    <!-- Post Content -->
+    <video controls>
+        <source src="post2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Actions -->
+    <div class="actions">
+        <button class="like-button">❤️ Like</button>
+        <button class="comment-button">💬 Comment</button>
+        <button class="repost-button">🔄 Repost</button>
+        <button class="send-button">✉️ Send</button>
+    </div>
+
+    <!-- Post Stats -->
+    <div class="post-stats">
+        <span class="likes">120 Likes</span>
+        <span class="comments">60 Comments</span>
+        <span class="shares">40 Shares</span>
+    </div>
+</div>
+
+<!-- Photo Post -->
+<div class="post">
+    <!-- Post Header -->
+    <div class="post-header">
+        <img src="avatar_placeholder.png" alt="Sudhir Jhalaria" class="post-avatar">
+        <div class="post-info">
+            <h4>Sudhir Jhalaria</h4>
+            <span class="post-profession">Dance Instructor</span>
+            <span class="post-time">5 hours ago</span>
+        </div>
+        <button class="follow-button">Follow +</button>
+    </div>
+
+    <!-- Descriptive Text -->
+    <p class="post-description">Today's rehearsal was a blast! Here's a sneak peek. 🎭</p>
+
+    <!-- Post Content -->
+    <img src="post_image_placeholder.jpg" alt="Dance Practice" class="post-image">
+
+    <!-- Actions -->
+    <div class="actions">
+        <button class="like-button">❤️ Like</button>
+        <button class="comment-button">💬 Comment</button>
+        <button class="repost-button">🔄 Repost</button>
+        <button class="send-button">✉️ Send</button>
+    </div>
+
+    <!-- Post Stats -->
+    <div class="post-stats">
+        <span class="likes">90 Likes</span>
+        <span class="comments">40 Comments</span>
+        <span class="shares">20 Shares</span>
+    </div>
+</div>
+
+
+</div>
+
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="right">
+            
+
+            <h3>Personalized Feed</h3>
+            <div class="buttons">
+                <button onclick="location.href='jazz_night_page.html'">Jazz Night with Emily - Attend</button>
+                <button onclick="location.href='painting_workshop_page.html'">Painting Workshop - Join</button>
+                <button onclick="location.href='dance_pro_page.html'">Dance Like a Pro - Register</button>
+            </div>
+
+            <h3>Learning</h3>
+            <div class="buttons">
+                <button onclick="location.href='explore_classes_page.html'">Explore Classes</button>
+                <button onclick="location.href='book_lessons_page.html'">Book Lessons</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Vibeline. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibeline Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Risque&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px; /* Same padding as the dashboard */
+            background-color: #2579c6;
+            color: white;
+        }
+        .header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 20px; /* Same size as dashboard */
+            font-weight: bold;
+        }
+        .header .logo img {
+            width: 35px; /* Same logo size as dashboard */
+            height: auto;
+        }
+        .header .actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .header .actions img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        .card .button {
+            padding: 10px 20px;
+            background-color: #2579c6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .card .button:hover {
+            background-color: #0a5e8d;
+        }
+        .balance-card {
+            text-align: center;
+            background-color: #f4f8fd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .balance-card h3 {
+            font-size: 22px;
+            color: #2579c6;
+        }
+        .balance-card p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+        .transaction-card {
+            margin-bottom: 20px;
+        }
+        .transaction-card h4 {
+            font-size: 18px;
+            color: #2579c6;
+            margin-bottom: 10px;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 10px;
+        }
+        .transaction-item p {
+            font-size: 16px;
+            color: #333;
+        }
+        .transaction-item .amount {
+            font-weight: bold;
+            color: #2579c6;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2579c6;
+            padding: 10px 0;
+            color: white;
+            font-size: 16px;
+        }
+        .footer .nav-item {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+        }
+        .footer .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .footer .nav-item:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<div class="header">
+    <div class="logo">
+        <img src="logo_placeholder.png" alt="Vibeline Logo" />
+        <div class="text">Vibeline</div>
+    </div>
+    <div class="actions">
+        <img src="avatar_placeholder.png" alt="User Avatar" />
+        <button class="button" onclick="alert('Quick Action Clicked!')">+ Create</button>
+    </div>
+</div>
+
+<!-- Main Wallet Page Content -->
+<div class="container">
+
+    <!-- Wallet Balance Section -->
+    <div class="section">
+        <div class="balance-card">
+            <h3>Your Wallet Balance</h3>
+            <p>Rs. 45,000</p>
+        </div>
+    </div>
+
+    <!-- Add Money Section -->
+    <div class="section">
+        <div class="card">
+            <h4>Add Money to Wallet</h4>
+            <input type="number" placeholder="Enter amount" style="padding: 10px; width: 80%; border-radius: 5px; margin-bottom: 15px;">
+            <button class="button" onclick="alert('Money added successfully!')">Add Money</button>
+        </div>
+    </div>
+
+    <!-- Withdraw Money Section -->
+    <div class="section">
+        <div class="card">
+            <h4>Withdraw Money</h4>
+            <input type="number" placeholder="Enter amount" style="padding: 10px; width: 80%; border-radius: 5px; margin-bottom: 15px;">
+            <button class="button" onclick="alert('Money withdrawn successfully!')">Withdraw</button>
+        </div>
+    </div>
+
+    <!-- Transaction History Section -->
+    <div class="section">
+        <h3>Transaction History</h3>
+        <div class="transaction-card">
+            <h4>Recent Transactions</h4>
+            <div class="transaction-item">
+                <p>Payment to John Doe</p>
+                <p class="amount">- Rs. 1,200</p>
+            </div>
+            <div class="transaction-item">
+                <p>Payment from Client XYZ</p>
+                <p class="amount">+ Rs. 5,000</p>
+            </div>
+            <div class="transaction-item">
+                <p>Withdrawal to Bank</p>
+                <p class="amount">- Rs. 3,500</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer Section -->
+<div class="footer">
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="artist_home.html">Home</a></div>
+    <div class="nav-item"><a href="fan_interactions.html">Notifications</a></div>
+    <div class="nav-item"><a href="artist_profile.html">Profile</a></div>
+<div class="nav-item"><a href="studio.html">Studio</a></div> <!-- New Studio Button -->
+</div>
+
+</body>
+</html>

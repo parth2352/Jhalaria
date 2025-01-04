@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibeline Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Risque&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #2579c6;
+            color: white;
+        }
+        .header .logo {
+            font-family: 'Risque', cursive;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .actions img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .header .actions .button {
+            background-color: white;
+            color: #2579c6;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .header .actions .button:hover {
+            background-color: #f0f8ff;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        .card .button {
+            padding: 10px 20px;
+            background-color: #2579c6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .card .button:hover {
+            background-color: #0a5e8d;
+        }
+        .analytics-card {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .analytics-item {
+            background-color: #f4f8fd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .analytics-item h4 {
+            font-size: 18px;
+            color: #2579c6;
+            margin-bottom: 5px;
+        }
+        .analytics-item p {
+            font-size: 16px;
+            color: #333;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2579c6;
+            padding: 10px 0;
+            color: white;
+            font-size: 16px;
+        }
+        .footer .nav-item {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+        }
+        .footer .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .footer .nav-item:hover {
+            text-decoration: underline;
+        }
+        .upload-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .upload-section .upload-button {
+            padding: 10px 20px;
+            background-color: #2579c6;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .upload-section .upload-button:hover {
+            background-color: #0a5e8d;
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .video-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            width: 30%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .video-item h4 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .video-item p {
+            font-size: 14px;
+            color: #333;
+        }
+        .edit-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-buttons .button {
+            background-color: #0a5e8d;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<div class="header">
+    <div class="logo">Vibeline Studio</div>
+    <div class="actions">
+        <img src="avatar_placeholder.png" alt="User Avatar" />
+        <button class="button" onclick="alert('Quick Action Clicked!')">+ Create</button>
+    </div>
+</div>
+
+<!-- Main Dashboard Content -->
+<div class="container">
+
+    <!-- View Followers Section -->
+    <div class="section">
+        <h3>Followers & Following</h3>
+        <div class="card">
+            <button class="button" onclick="viewFollowers()">View Followers</button>
+            <button class="button" onclick="viewFollowing()">View Following</button>
+            <button class="button" onclick="viewMembership()">View Membership</button>
+        </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <button class="upload-button" onclick="alert('Upload video clicked!')">Upload Video</button>
+        <button class="upload-button" onclick="alert('Upload Loop/Reel clicked!')">Upload Loop/Reel</button>
+    </div>
+
+    <!-- Video List Section -->
+    <div class="section">
+        <h3>Manage Videos</h3>
+        <div class="video-list">
+            <div class="video-item">
+                <img src="video_thumbnail.jpg" alt="Video Thumbnail">
+                <h4>Video Title</h4>
+                <p>Posted on: January 15, 2024</p>
+                <div class="edit-buttons">
+                    <button class="button" onclick="alert('Edit video clicked!')">Edit</button>
+                    <button class="button" onclick="alert('Delete video clicked!')">Delete</button>
+                </div>
+            </div>
+            <!-- Repeat video-item for each video in the list -->
+        </div>
+    </div>
+
+    <!-- Advanced Analytics Section -->
+    <div class="section">
+        <h3>Video Analytics</h3>
+        <div class="analytics-card">
+            <div class="analytics-item">
+                <h4>Total Views</h4>
+                <p>1,245,678</p>
+            </div>
+            <div class="analytics-item">
+                <h4>Watch Time</h4>
+                <p>1.2M hours</p>
+            </div>
+            <div class="analytics-item">
+                <h4>Revenue</h4>
+                <p>Rs. 10,34,560</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Monetization Section -->
+    <div class="section">
+        <h3>Monetization & Earnings</h3>
+        <div class="card">
+            <h4>Ad Revenue</h4>
+            <p>Rs. 1,23,456</p>
+        </div>
+        <div class="card">
+            <h4>Super Chats</h4>
+            <p>Rs. 10,000</p>
+        </div>
+    </div>
+
+    <!-- Live Streaming Management Section -->
+    <div class="section">
+        <h3>Live Stream</h3>
+        <div class="card">
+            <button class="button" onclick="alert('Start Live Stream clicked!')">Start Live Stream</button>
+        </div>
+    </div>
+
+    <!-- Channel Customization Section -->
+    <div class="section">
+        <h3>Channel Customization</h3>
+        <div class="card">
+            <button class="button" onclick="alert('Edit Channel clicked!')">Edit Channel</button>
+        </div>
+    </div>
+
+    <!-- Playlist Management Section -->
+    <div class="section">
+        <h3>Manage Playlists</h3>
+        <div class="card">
+            <button class="button" onclick="alert('Create Playlist clicked!')">Create Playlist</button>
+        </div>
+    </div>
+
+    <!-- Subtitles and Captions Section -->
+    <div class="section">
+        <h3>Subtitles & Captions</h3>
+        <div class="card">
+            <button class="button" onclick="alert('Upload Subtitles clicked!')">Upload Subtitles</button>
+        </div>
+    </div>
+
+    <!-- Content Moderation Section -->
+    <div class="section">
+        <h3>Content Moderation</h3>
+        <div class="card">
+            <button class="button" onclick="alert('Moderate Comments clicked!')">Moderate Comments</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Navigation -->
+<div class="footer">
+    <div class="nav-item"><a href="artist_home.html">Home</a></div>
+    <div class="nav-item"><a href="fan_interactions.html">Notifications</a></div>
+    <div class="nav-item"><a href="wallet.html">Wallet</a></div>
+    <div class="nav-item"><a href="artist_profile.html">Profile</a></div>
+    <div class="nav-item"><a href="studio.html">Studio</a></div> <!-- Added "Studio" button -->
+</div>
+
+<script>
+    function viewFollowers() {
+        alert("Viewing Followers: Here you can see the list of followers.");
+    }
+
+    function viewFollowing() {
+        alert("Viewing Following: Here you can see who you are following.");
+    }
+
+    function viewMembership() {
+        alert("Viewing Membership: Check membership status and details.");
+    }
+</script>
+
+</body>
+</html>

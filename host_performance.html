@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Live Performance - Vibeline</title>
+    <style>
+        .container { width: 80%; margin: auto; padding: 20px; }
+        h2 { text-align: center; }
+        .form-group { margin: 10px 0; }
+        input[type="text"], input[type="number"], input[type="time"] { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 15px 30px; background-color: #2579c6; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0a5e8d; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Host Your Live Performance</h2>
+    <form>
+        <div class="form-group">
+            <label for="performanceName">Performance Name</label>
+            <input type="text" id="performanceName" placeholder="Enter Performance Name" required>
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" placeholder="Enter Genre (e.g., Jazz, Rock)" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" placeholder="Enter Ticket Price" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Performance Time</label>
+            <input type="time" id="time" required>
+        </div>
+        <button type="submit">Host Performance</button>
+    </form>
+</div>
+
+</body>
+</html>
